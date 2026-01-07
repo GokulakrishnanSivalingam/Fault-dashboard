@@ -14,12 +14,14 @@ app.use(express.json());
 const detectionRoutes = require('./routes/detections');
 app.use('/api/detections', detectionRoutes);
 
-// Basic Route
+const dataRoutes = require('./routes/data');
+app.use('/api/data', dataRoutes);
+
+
 app.get('/', (req, res) => {
     res.send('Transformer Line Detection API is running');
 });
 
-// Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/transformer_db', {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -27,7 +29,6 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/transformer
     .catch(err => console.log(err));
 
 
-// Start Server (only if not running in Vercel/Serverless environment)
 if (process.env.NODE_ENV !== 'production') {
     app.listen(PORT, () => {
         console.log(`Server running on port ${PORT}`);

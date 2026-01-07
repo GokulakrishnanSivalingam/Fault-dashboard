@@ -43,6 +43,5 @@ const sendData = async () => {
     }
 };
 
-// Send data every 2 seconds
 setInterval(sendData, 2000);
 console.log('Simulator started...');
