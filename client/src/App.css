@@ -1,0 +1,42 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+  position: relative;
+}
+
+.mobile-menu-btn {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 30;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
+.page-not-found {
+  padding: 2.5rem;
+  color: var(--text-secondary);
+}

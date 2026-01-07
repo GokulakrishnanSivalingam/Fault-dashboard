@@ -1,0 +1,92 @@
+.about-container {
+    min-height: 100vh;
+    background-color: #f8fafc;
+    padding: 3rem;
+}
+
+.about-card {
+    max-width: 56rem;
+    /* 4xl */
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+    padding: 3rem;
+    border: 1px solid #f1f5f9;
+}
+
+.about-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--bg-dark);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.about-content {
+    color: #475569;
+    line-height: 1.75;
+    font-size: 1.125rem;
+}
+
+.about-highlight {
+    font-weight: 700;
+    color: var(--bg-dark);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+@media (min-width: 768px) {
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.about-box {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.about-box.blue {
+    background-color: #eff6ff;
+}
+
+.about-box.purple {
+    background-color: #faf5ff;
+}
+
+.about-box-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.about-box.blue .about-box-title {
+    color: #1e3a8a;
+}
+
+.about-box.purple .about-box-title {
+    color: #581c87;
+}
+
+.about-subtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--bg-dark);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-list {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+}
+
+.about-list li {
+    margin-bottom: 0.5rem;
+}
