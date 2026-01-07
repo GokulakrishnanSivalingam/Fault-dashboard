@@ -28,7 +28,10 @@ ChartJS.register(
     Filler
 );
 
+import LoadingSpinner from './LoadingSpinner';
+
 const Dashboard = () => {
+    const [loading, setLoading] = useState(true);
     const [detections, setDetections] = useState([]);
     const [stats, setStats] = useState({
         total: 0,
@@ -78,6 +81,7 @@ const Dashboard = () => {
         const confidence = latest.confidence || 0;
 
         setStats({ total, critical, avgVoltage, currentPrediction, confidence });
+        setLoading(false);
     };
 
     useEffect(() => {
@@ -88,6 +92,7 @@ const Dashboard = () => {
                 if (response.data && response.data.length > 0) {
                     processData(response.data);
                 } else {
+                    console.warn("API empty, using dummy data");
                     processData(generateDummyData());
                 }
             } catch (error) {
@@ -95,12 +100,21 @@ const Dashboard = () => {
             }
         };
 
+        // Initial fetch
         fetchData();
         // Poll slower for history view, or separate live feed? 
         // For now, simple polling
         const interval = setInterval(fetchData, 10000);
         return () => clearInterval(interval);
     }, []);
+
+    if (loading) {
+        return (
+            <div className="dashboard-container">
+                <LoadingSpinner />
+            </div>
+        );
+    }
 
     // --- Chart Configurations ---
     const lineChartData = {
